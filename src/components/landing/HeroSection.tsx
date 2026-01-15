@@ -57,7 +57,7 @@ const HeroSection = () => {
             <div className="flex items-center gap-8 pt-4">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <div className="w-2 h-2 bg-primary rounded-full" />
-                Sin contratos largos
+                Con estrategia real
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <div className="w-2 h-2 bg-primary rounded-full" />
