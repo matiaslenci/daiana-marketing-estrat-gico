@@ -77,7 +77,7 @@ const PackagesSection = () => {
               }`}
             >
               {pkg.featured && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-1 bg-accent-foreground text-primary-foreground px-4 py-1.5 rounded-full text-sm font-medium">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-1 bg-destructive text-primary-foreground px-4 py-1.5 rounded-full text-sm font-medium">
                   <Star size={14} fill="currentColor" />
                   Más elegido
                 </div>
