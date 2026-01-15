@@ -33,8 +33,8 @@ All colors MUST be HSL.
     --accent: 355 100% 97%;
     --accent-foreground: 349 89% 60%;
 
-    --destructive: 0 72% 50%;
-    --destructive-foreground: 0 85% 97%;
+    --destructive: 333 71% 50%;
+    --destructive-foreground: 333 71% 50%;
 
     --border: 240 4% 83%;
     --input: 240 4% 83%;

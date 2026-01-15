@@ -61,7 +61,8 @@ const PackagesSection = () => {
             Elegí el plan que mejor se adapte
           </h2>
           <p className="text-lg text-muted-foreground">
-            Todos los paquetes son personalizables según las necesidades de tu negocio.
+            Todos los paquetes son personalizables según las necesidades de tu
+            negocio.
           </p>
         </div>
 
@@ -83,30 +84,79 @@ const PackagesSection = () => {
               )}
 
               <div className="mb-8">
-                <h3 className={`text-xl font-bold mb-2 ${pkg.featured ? "text-primary-foreground" : "text-foreground"}`}>
+                <h3
+                  className={`text-xl font-bold mb-2 ${
+                    pkg.featured ? "text-primary-foreground" : "text-foreground"
+                  }`}
+                >
                   {pkg.name}
                 </h3>
-                <p className={`text-sm mb-6 ${pkg.featured ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+                <p
+                  className={`text-sm mb-6 ${
+                    pkg.featured
+                      ? "text-primary-foreground/80"
+                      : "text-muted-foreground"
+                  }`}
+                >
                   {pkg.description}
                 </p>
                 <div className="flex items-baseline gap-1">
-                  <span className={`text-sm ${pkg.featured ? "text-primary-foreground/80" : "text-muted-foreground"}`}>$</span>
-                  <span className={`text-4xl font-bold ${pkg.featured ? "text-primary-foreground" : "text-foreground"}`}>
+                  <span
+                    className={`text-sm ${
+                      pkg.featured
+                        ? "text-primary-foreground/80"
+                        : "text-muted-foreground"
+                    }`}
+                  >
+                    $
+                  </span>
+                  <span
+                    className={`text-4xl font-bold ${
+                      pkg.featured
+                        ? "text-primary-foreground"
+                        : "text-foreground"
+                    }`}
+                  >
                     {pkg.price}
                   </span>
-                  <span className={`text-sm ${pkg.featured ? "text-primary-foreground/80" : "text-muted-foreground"}`}>/mes</span>
+                  <span
+                    className={`text-sm ${
+                      pkg.featured
+                        ? "text-primary-foreground/80"
+                        : "text-muted-foreground"
+                    }`}
+                  >
+                    /mes
+                  </span>
                 </div>
               </div>
 
               <ul className="space-y-4 mb-8">
                 {pkg.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                      pkg.featured ? "bg-primary-foreground/20" : "bg-primary/10"
-                    }`}>
-                      <Check className={pkg.featured ? "text-primary-foreground" : "text-primary"} size={12} />
+                    <div
+                      className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
+                        pkg.featured
+                          ? "bg-primary-foreground/20"
+                          : "bg-primary/10"
+                      }`}
+                    >
+                      <Check
+                        className={
+                          pkg.featured
+                            ? "text-primary-foreground"
+                            : "text-primary"
+                        }
+                        size={12}
+                      />
                     </div>
-                    <span className={`text-sm ${pkg.featured ? "text-primary-foreground/90" : "text-foreground"}`}>
+                    <span
+                      className={`text-sm ${
+                        pkg.featured
+                          ? "text-primary-foreground/90"
+                          : "text-foreground"
+                      }`}
+                    >
                       {feature}
                     </span>
                   </li>
@@ -126,8 +176,11 @@ const PackagesSection = () => {
         </div>
 
         <p className="text-center text-muted-foreground mt-12 max-w-2xl mx-auto">
-          <strong className="text-foreground">¿Necesitás algo diferente?</strong> Todos los paquetes son 100% personalizables. 
-          Conversemos sobre lo que tu negocio necesita.
+          <strong className="text-foreground">
+            ¿Necesitás algo diferente?
+          </strong>{" "}
+          Todos los paquetes son 100% personalizables. Conversemos sobre lo que
+          tu negocio necesita.
         </p>
       </div>
     </section>
