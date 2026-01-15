@@ -13,7 +13,7 @@ const SolutionSection = () => {
   return (
     <section className="py-20 md:py-32 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent" />
-      
+
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="order-2 lg:order-1">
@@ -24,29 +24,41 @@ const SolutionSection = () => {
                     <Sparkles className="text-primary-foreground" size={32} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-foreground">Marketing Externo</h3>
-                    <p className="text-sm text-muted-foreground">Servicio integral para pymes</p>
+                    <h3 className="text-xl font-bold text-foreground">
+                      Marketing Externo
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Servicio integral para pymes
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="space-y-4">
-                  {["Análisis", "Estrategia", "Contenido", "Publicación", "Resultados"].map((step, i) => (
+                  {[
+                    "Análisis",
+                    "Estrategia",
+                    "Contenido",
+                    "Publicación",
+                    "Resultados",
+                  ].map((step, i) => (
                     <div key={i} className="flex items-center gap-4">
                       <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-sm font-semibold text-primary">
                         {i + 1}
                       </div>
                       <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
-                        <div 
+                        <div
                           className="h-full bg-gradient-to-r from-primary to-accent-foreground rounded-full transition-all duration-1000"
                           style={{ width: `${(i + 1) * 20}%` }}
                         />
                       </div>
-                      <span className="text-sm font-medium text-foreground w-24">{step}</span>
+                      <span className="text-sm font-medium text-foreground w-24">
+                        {step}
+                      </span>
                     </div>
                   ))}
                 </div>
               </div>
-              
+
               <div className="absolute -bottom-4 -right-4 bg-primary text-primary-foreground rounded-xl px-6 py-3 shadow-lg">
                 <p className="text-sm font-medium">Vos delegás, yo ejecuto</p>
               </div>
@@ -57,15 +69,17 @@ const SolutionSection = () => {
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
               La solución
             </span>
-            
+
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-              Tu departamento de marketing,
+              Tu departamento de
               <br />
-              <span className="text-primary">sin el costo fijo.</span>
+              <span className="text-primary">marketing.</span>
             </h2>
-            
+
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Me encargo de todo: desde pensar la estrategia hasta medir los resultados. Vos solo te ocupás de atender a los clientes que llegan.
+              Me encargo de todo: desde pensar la estrategia hasta medir los
+              resultados. Vos solo te ocupás de atender a los clientes que
+              llegan.
             </p>
 
             <ul className="space-y-4">
@@ -77,10 +91,14 @@ const SolutionSection = () => {
               ))}
             </ul>
 
-            <Button 
-              variant="hero" 
+            <Button
+              variant="hero"
               size="lg"
-              onClick={() => document.getElementById("servicios")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                document
+                  .getElementById("servicios")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               Ver cómo funciona
               <ArrowRight size={18} />
