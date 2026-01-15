@@ -1,4 +1,10 @@
-import { ArrowRight, Mail, MessageCircle } from "lucide-react";
+import {
+  ArrowRight,
+  Mail,
+  MessageCircle,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const CTASection = () => {
@@ -24,7 +30,9 @@ const CTASection = () => {
               variant="secondary"
               size="xl"
               className="group hover:text-white"
-              onClick={() => window.open("https://wa.me/", "_blank")}
+              onClick={() =>
+                window.open("https://wa.me/5493424625118", "_blank")
+              }
             >
               <MessageCircle size={20} />
               Escribime por WhatsApp
@@ -37,10 +45,37 @@ const CTASection = () => {
               variant="heroOutline"
               size="xl"
               className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
-              onClick={() => window.open("mailto:hola@daiana.com", "_blank")}
+              onClick={() =>
+                window.open("mailto:daiiparet@gmail.com", "_blank")
+              }
             >
               <Mail size={20} />
               Enviame un email
+            </Button>
+            <Button
+              variant="heroOutline"
+              size="xl"
+              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+              onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/in/daiana-paret-7b178a338",
+                  "_blank"
+                )
+              }
+            >
+              <Linkedin size={20} />
+              Conectemos en LinkedIn
+            </Button>
+            <Button
+              variant="heroOutline"
+              size="xl"
+              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+              onClick={() =>
+                window.open("https://www.instagram.com/daiparet.cm", "_blank")
+              }
+            >
+              <Instagram size={20} />
+              Sígueme en Instagram
             </Button>
           </div>
 
