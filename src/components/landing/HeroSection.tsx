@@ -105,8 +105,8 @@ const HeroSection = () => {
               {/* Floating card 1 */}
               <div className="absolute -left-8 top-1/2 -translate-y-1/2 bg-card rounded-xl p-4 shadow-lg border border-border/50 animate-float">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                    <Calendar className="text-accent-foreground" size={20} />
+                  <div className="w-10 h-10 bg-destructive/10 rounded-lg flex items-center justify-center">
+                    <Calendar className="text-destructive" size={20} />
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground">Esta semana</p>
