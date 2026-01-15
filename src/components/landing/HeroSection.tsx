@@ -31,7 +31,9 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
-              Soy tu departamento de marketing externo. Me encargo de pensar, ejecutar y medir tu comunicación digital mientras vos te ocupás de lo que mejor sabés hacer: hacer crecer tu empresa.
+              Soy tu departamento de marketing externo. Me encargo de pensar,
+              ejecutar y medir tu comunicación digital mientras vos te ocupás de
+              lo que mejor sabés hacer: hacer crecer tu empresa.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -39,7 +41,15 @@ const HeroSection = () => {
                 Agendar llamada gratuita
                 <ArrowRight size={20} />
               </Button>
-              <Button variant="heroOutline" size="xl" onClick={() => document.getElementById("servicios")?.scrollIntoView({ behavior: "smooth" })}>
+              <Button
+                variant="heroOutline"
+                size="xl"
+                onClick={() =>
+                  document
+                    .getElementById("servicios")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
                 Conocer servicios
               </Button>
             </div>
@@ -56,29 +66,38 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className="relative hidden lg:block animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <div
+            className="relative hidden lg:block animate-fade-in"
+            style={{ animationDelay: "0.2s" }}
+          >
             <div className="relative">
               {/* Main card */}
               <div className="bg-card rounded-2xl p-8 shadow-xl border border-border/50">
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                      <BarChart3 className="text-primary" size={24} />
+                    <div className="w-12 h-12 bg-destructive/10 rounded-xl flex items-center justify-center">
+                      <BarChart3 className="text-destructive" size={24} />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Crecimiento mensual</p>
-                      <p className="text-2xl font-bold text-foreground">+127%</p>
+                      <p className="text-sm text-muted-foreground">
+                        Crecimiento mensual
+                      </p>
+                      <p className="text-2xl font-bold text-foreground">
+                        +127%
+                      </p>
                     </div>
                   </div>
 
                   <div className="h-32 flex items-end gap-2">
-                    {[40, 55, 45, 70, 60, 85, 75, 95, 80, 100, 90, 110].map((height, i) => (
-                      <div
-                        key={i}
-                        className="flex-1 bg-gradient-to-t from-primary to-primary/50 rounded-t transition-all hover:from-primary hover:to-primary/70"
-                        style={{ height: `${height}%` }}
-                      />
-                    ))}
+                    {[40, 55, 45, 70, 60, 85, 75, 95, 80, 100, 90, 110].map(
+                      (height, i) => (
+                        <div
+                          key={i}
+                          className="flex-1 bg-gradient-to-t from-destructive to-destructive/50 rounded-t transition-all hover:from-destructive hover:to-destructive/70"
+                          style={{ height: `${height}%` }}
+                        />
+                      )
+                    )}
                   </div>
                 </div>
               </div>
@@ -91,20 +110,27 @@ const HeroSection = () => {
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground">Esta semana</p>
-                    <p className="text-sm font-semibold text-foreground">12 publicaciones</p>
+                    <p className="text-sm font-semibold text-foreground">
+                      12 publicaciones
+                    </p>
                   </div>
                 </div>
               </div>
 
               {/* Floating card 2 */}
-              <div className="absolute -right-4 bottom-8 bg-card rounded-xl p-4 shadow-lg border border-border/50 animate-float" style={{ animationDelay: "1s" }}>
+              <div
+                className="absolute -right-4 bottom-8 bg-card rounded-xl p-4 shadow-lg border border-border/50 animate-float"
+                style={{ animationDelay: "1s" }}
+              >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <Target className="text-primary" size={20} />
+                  <div className="w-10 h-10 bg-destructive/10 rounded-lg flex items-center justify-center">
+                    <Target className="text-destructive" size={20} />
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground">Alcance</p>
-                    <p className="text-sm font-semibold text-foreground">+45K personas</p>
+                    <p className="text-sm font-semibold text-foreground">
+                      +45K personas
+                    </p>
                   </div>
                 </div>
               </div>
