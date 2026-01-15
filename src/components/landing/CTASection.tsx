@@ -15,22 +15,26 @@ const CTASection = () => {
             Delegá tu marketing con tranquilidad
           </h2>
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 leading-relaxed">
-            Agendemos una llamada sin compromiso para conocer tu negocio y ver cómo puedo ayudarte a comunicar mejor.
+            Agendemos una llamada sin compromiso para conocer tu negocio y ver
+            cómo puedo ayudarte a comunicar mejor.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button 
-              variant="secondary" 
+            <Button
+              variant="secondary"
               size="xl"
-              className="group"
+              className="group hover:text-white"
               onClick={() => window.open("https://wa.me/", "_blank")}
             >
               <MessageCircle size={20} />
               Escribime por WhatsApp
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight
+                size={18}
+                className="group-hover:translate-x-1 transition-transform"
+              />
             </Button>
-            <Button 
-              variant="heroOutline" 
+            <Button
+              variant="heroOutline"
               size="xl"
               className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
               onClick={() => window.open("mailto:hola@daiana.com", "_blank")}
