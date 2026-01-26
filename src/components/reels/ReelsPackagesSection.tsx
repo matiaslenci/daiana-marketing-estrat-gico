@@ -8,7 +8,9 @@ const packages = [
     price: "200.000",
     featured: false,
     features: [
-      "8 videos al mes",
+      "8 guiones al mes",
+      "8 ediciones al mes",
+      "Mentoría para grabación",
       "Soporte por mensaje",
       "Entrega semanal",
     ],
@@ -19,7 +21,9 @@ const packages = [
     price: "350.000",
     featured: true,
     features: [
-      "16 videos al mes",
+      "16 guiones al mes",
+      "16 ediciones al mes",
+      "Mentoría para grabación",
       "Soporte prioritario",
       "Ajustes estratégicos mensuales",
     ],
@@ -30,7 +34,9 @@ const packages = [
     price: "530.000",
     featured: false,
     features: [
-      "24 videos al mes",
+      "24 guiones al mes",
+      "24 ediciones al mes",
+      "Mentoría para grabación",
       "Soporte directo",
       "Revisión estratégica continua",
     ],
@@ -62,8 +68,8 @@ const ReelsPackagesSection = () => {
             <div
               key={index}
               className={`relative rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2 ${pkg.featured
-                  ? "bg-gradient-to-b from-primary to-primary/90 text-primary-foreground shadow-2xl scale-105"
-                  : "bg-card border border-border/50 hover:border-primary/30 hover:shadow-xl"
+                ? "bg-gradient-to-b from-primary to-primary/90 text-primary-foreground shadow-2xl scale-105"
+                : "bg-card border border-border/50 hover:border-primary/30 hover:shadow-xl"
                 }`}
             >
               {pkg.featured && (
@@ -82,8 +88,8 @@ const ReelsPackagesSection = () => {
                 </h3>
                 <p
                   className={`text-sm mb-6 ${pkg.featured
-                      ? "text-primary-foreground/80"
-                      : "text-muted-foreground"
+                    ? "text-primary-foreground/80"
+                    : "text-muted-foreground"
                     }`}
                 >
                   {pkg.subtitle}
@@ -91,24 +97,24 @@ const ReelsPackagesSection = () => {
                 <div className="flex items-baseline gap-1">
                   <span
                     className={`text-sm ${pkg.featured
-                        ? "text-primary-foreground/80"
-                        : "text-muted-foreground"
+                      ? "text-primary-foreground/80"
+                      : "text-muted-foreground"
                       }`}
                   >
                     $
                   </span>
                   <span
                     className={`text-4xl font-bold ${pkg.featured
-                        ? "text-primary-foreground"
-                        : "text-foreground"
+                      ? "text-primary-foreground"
+                      : "text-foreground"
                       }`}
                   >
                     {pkg.price}
                   </span>
                   <span
                     className={`text-sm ${pkg.featured
-                        ? "text-primary-foreground/80"
-                        : "text-muted-foreground"
+                      ? "text-primary-foreground/80"
+                      : "text-muted-foreground"
                       }`}
                   >
                     /mes
@@ -121,8 +127,8 @@ const ReelsPackagesSection = () => {
                   <li key={i} className="flex items-start gap-3">
                     <div
                       className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${pkg.featured
-                          ? "bg-primary-foreground/20"
-                          : "bg-primary/10"
+                        ? "bg-primary-foreground/20"
+                        : "bg-primary/10"
                         }`}
                     >
                       <Check
@@ -136,8 +142,8 @@ const ReelsPackagesSection = () => {
                     </div>
                     <span
                       className={`text-sm ${pkg.featured
-                          ? "text-primary-foreground/90"
-                          : "text-foreground"
+                        ? "text-primary-foreground/90"
+                        : "text-foreground"
                         }`}
                     >
                       {feature}
