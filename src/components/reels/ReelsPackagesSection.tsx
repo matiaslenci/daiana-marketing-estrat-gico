@@ -5,8 +5,7 @@ const packages = [
   {
     name: "Base",
     subtitle: "Para empezar a construir presencia",
-    price: "180",
-    currency: "USD",
+    price: "200.000",
     featured: false,
     features: [
       "8 videos al mes",
@@ -17,8 +16,7 @@ const packages = [
   {
     name: "Crecimiento",
     subtitle: "Para negocios que quieren consistencia real",
-    price: "320",
-    currency: "USD",
+    price: "350.000",
     featured: true,
     features: [
       "16 videos al mes",
@@ -29,8 +27,7 @@ const packages = [
   {
     name: "Autoridad",
     subtitle: "Para quienes quieren posicionarse fuerte en su nicho",
-    price: "480",
-    currency: "USD",
+    price: "530.000",
     featured: false,
     features: [
       "24 videos al mes",
@@ -64,11 +61,10 @@ const ReelsPackagesSection = () => {
           {packages.map((pkg, index) => (
             <div
               key={index}
-              className={`relative rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2 ${
-                pkg.featured
+              className={`relative rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2 ${pkg.featured
                   ? "bg-gradient-to-b from-primary to-primary/90 text-primary-foreground shadow-2xl scale-105"
                   : "bg-card border border-border/50 hover:border-primary/30 hover:shadow-xl"
-              }`}
+                }`}
             >
               {pkg.featured && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-1 bg-destructive text-primary-foreground px-4 py-1.5 rounded-full text-sm font-medium">
@@ -79,46 +75,41 @@ const ReelsPackagesSection = () => {
 
               <div className="mb-8">
                 <h3
-                  className={`text-xl font-bold mb-2 ${
-                    pkg.featured ? "text-primary-foreground" : "text-foreground"
-                  }`}
+                  className={`text-xl font-bold mb-2 ${pkg.featured ? "text-primary-foreground" : "text-foreground"
+                    }`}
                 >
                   Plan {pkg.name}
                 </h3>
                 <p
-                  className={`text-sm mb-6 ${
-                    pkg.featured
+                  className={`text-sm mb-6 ${pkg.featured
                       ? "text-primary-foreground/80"
                       : "text-muted-foreground"
-                  }`}
+                    }`}
                 >
                   {pkg.subtitle}
                 </p>
                 <div className="flex items-baseline gap-1">
                   <span
-                    className={`text-sm ${
-                      pkg.featured
+                    className={`text-sm ${pkg.featured
                         ? "text-primary-foreground/80"
                         : "text-muted-foreground"
-                    }`}
+                      }`}
                   >
-                    {pkg.currency}
+                    $
                   </span>
                   <span
-                    className={`text-4xl font-bold ${
-                      pkg.featured
+                    className={`text-4xl font-bold ${pkg.featured
                         ? "text-primary-foreground"
                         : "text-foreground"
-                    }`}
+                      }`}
                   >
                     {pkg.price}
                   </span>
                   <span
-                    className={`text-sm ${
-                      pkg.featured
+                    className={`text-sm ${pkg.featured
                         ? "text-primary-foreground/80"
                         : "text-muted-foreground"
-                    }`}
+                      }`}
                   >
                     /mes
                   </span>
@@ -129,11 +120,10 @@ const ReelsPackagesSection = () => {
                 {pkg.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <div
-                      className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                        pkg.featured
+                      className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${pkg.featured
                           ? "bg-primary-foreground/20"
                           : "bg-primary/10"
-                      }`}
+                        }`}
                     >
                       <Check
                         className={
@@ -145,11 +135,10 @@ const ReelsPackagesSection = () => {
                       />
                     </div>
                     <span
-                      className={`text-sm ${
-                        pkg.featured
+                      className={`text-sm ${pkg.featured
                           ? "text-primary-foreground/90"
                           : "text-foreground"
-                      }`}
+                        }`}
                     >
                       {feature}
                     </span>
