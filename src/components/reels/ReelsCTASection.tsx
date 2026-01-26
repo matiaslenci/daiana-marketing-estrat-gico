@@ -35,7 +35,7 @@ const ReelsCTASection = () => {
               size="xl"
               className="group hover:text-white"
               onClick={() =>
-                window.open("https://wa.me/5493424625118", "_blank")
+                window.open("https://wa.me/5493424625118?text=Hola!%20estoy%20interesado%20en%20el%20servicio%20de%20guiones%20y%20videos", "_blank")
               }
             >
               <MessageCircle size={20} />

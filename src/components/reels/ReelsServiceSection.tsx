@@ -66,11 +66,7 @@ const ReelsServiceSection = () => {
                 </li>
               ))}
             </ul>
-            <div className="bg-secondary/10 rounded-xl p-4 border border-border/50">
-              <p className="text-foreground font-semibold text-center">
-                Es un sistema mensual, no un freelance improvisado.
-              </p>
-            </div>
+
           </div>
         </div>
       </div>

@@ -31,7 +31,7 @@ const CTASection = () => {
               size="xl"
               className="group hover:text-white"
               onClick={() =>
-                window.open("https://wa.me/5493424625118", "_blank")
+                window.open("https://wa.me/5493424625118?text=Hola!%20estoy%20interesado%20en%20el%20manejo%20de%20redes%20sociales", "_blank")
               }
             >
               <MessageCircle size={20} />
