@@ -18,7 +18,7 @@ const Index = () => {
         <ProblemSection />
         <SolutionSection />
         <ServiceSection />
-        <PackagesSection />
+        {/*  <PackagesSection /> */}
         <ProcessSection />
         <TargetSection />
         <CTASection />
