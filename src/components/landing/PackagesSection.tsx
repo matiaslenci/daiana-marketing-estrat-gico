@@ -13,6 +13,7 @@ const packages = [
       "Redacción de copys",
       "Seguimiento de redes",
     ],
+    price: "200.000",
   },
   {
     name: "Crecimiento",
@@ -26,6 +27,7 @@ const packages = [
       "Redacción de biografía",
       "Seguimiento de redes",
     ],
+    price: "300.000",
   },
   {
     name: "Premium",
@@ -39,6 +41,7 @@ const packages = [
       "Redacción de biografía",
       "Seguimiento de redes",
     ],
+    price: "370.000",
   },
 ];
 
@@ -68,8 +71,8 @@ const PackagesSection = () => {
             <div
               key={index}
               className={`relative rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2 ${pkg.featured
-                  ? "bg-gradient-to-b from-primary to-primary/90 text-primary-foreground shadow-2xl scale-105"
-                  : "bg-card border border-border/50 hover:border-primary/30 hover:shadow-xl"
+                ? "bg-gradient-to-b from-primary to-primary/90 text-primary-foreground shadow-2xl scale-105"
+                : "bg-card border border-border/50 hover:border-primary/30 hover:shadow-xl"
                 }`}
             >
               {pkg.featured && (
@@ -88,41 +91,38 @@ const PackagesSection = () => {
                 </h3>
                 <p
                   className={`text-sm mb-6 ${pkg.featured
-                      ? "text-primary-foreground/80"
-                      : "text-muted-foreground"
+                    ? "text-primary-foreground/80"
+                    : "text-muted-foreground"
                     }`}
                 >
                   {pkg.description}
                 </p>
-                {/*   <div className="flex items-baseline gap-1">
+                <div className="flex items-baseline gap-1">
                   <span
-                    className={`text-sm ${
-                      pkg.featured
-                        ? "text-primary-foreground/80"
-                        : "text-muted-foreground"
-                    }`}
+                    className={`text-sm ${pkg.featured
+                      ? "text-primary-foreground/80"
+                      : "text-muted-foreground"
+                      }`}
                   >
                     $
                   </span>
                   <span
-                    className={`text-4xl font-bold ${
-                      pkg.featured
-                        ? "text-primary-foreground"
-                        : "text-foreground"
-                    }`}
+                    className={`text-4xl font-bold ${pkg.featured
+                      ? "text-primary-foreground"
+                      : "text-foreground"
+                      }`}
                   >
                     {pkg.price}
                   </span>
                   <span
-                    className={`text-sm ${
-                      pkg.featured
-                        ? "text-primary-foreground/80"
-                        : "text-muted-foreground"
-                    }`}
+                    className={`text-sm ${pkg.featured
+                      ? "text-primary-foreground/80"
+                      : "text-muted-foreground"
+                      }`}
                   >
                     /mes
                   </span>
-                </div> */}
+                </div>
               </div>
 
               <ul className="space-y-4 mb-8">
@@ -130,8 +130,8 @@ const PackagesSection = () => {
                   <li key={i} className="flex items-start gap-3">
                     <div
                       className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${pkg.featured
-                          ? "bg-primary-foreground/20"
-                          : "bg-primary/10"
+                        ? "bg-primary-foreground/20"
+                        : "bg-primary/10"
                         }`}
                     >
                       <Check
@@ -145,8 +145,8 @@ const PackagesSection = () => {
                     </div>
                     <span
                       className={`text-sm ${pkg.featured
-                          ? "text-primary-foreground/90"
-                          : "text-foreground"
+                        ? "text-primary-foreground/90"
+                        : "text-foreground"
                         }`}
                     >
                       {feature}
