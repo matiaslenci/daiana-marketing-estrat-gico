@@ -1,6 +1,5 @@
 import Header from "@/components/landing/Header";
 import HeroSection from "@/components/landing/HeroSection";
-import SolutionSection from "@/components/landing/SolutionSection";
 import PortfolioSection from "@/components/landing/PortfolioSection";
 import ClientsSection from "@/components/landing/ClientsSection";
 import ServiceSection from "@/components/landing/ServiceSection";
@@ -16,13 +15,12 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <SolutionSection />
         <PortfolioSection />
-        <ClientsSection />
         <ServiceSection />
+        <ClientsSection />
         <PackagesSection />
-        <ProcessSection />
-        <TargetSection />
+        {/*    <ProcessSection />
+        <TargetSection /> */}
         <CTASection />
       </main>
       <Footer />

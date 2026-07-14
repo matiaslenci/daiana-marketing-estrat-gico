@@ -1,6 +1,5 @@
 import {
   ArrowRight,
-  Mail,
   MessageCircle,
   Linkedin,
   Instagram,
@@ -27,30 +26,22 @@ const CTASection = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button
-              variant="ctaGlow"
+              variant="secondary"
               size="xl"
-              className="group"
+              className="group bg-white text-primary shadow-lg hover:bg-white/90 hover:text-primary"
               onClick={() =>
-                window.open("https://wa.me/5493424625118?text=Hola!%20estoy%20interesado%20en%20el%20manejo%20de%20redes%20sociales", "_blank")
+                window.open(
+                  "https://wa.me/5493424625118?text=Hola%20Dai!%20Vi%20tu%20web%20y%20quiero%20que%20gestiones%20las%20redes%20de%20mi%20negocio",
+                  "_blank"
+                )
               }
             >
-              <MessageCircle size={20} />
+              <MessageCircle size={20} className="text-[#25d366]" />
               Escribime por WhatsApp
               <ArrowRight
                 size={18}
                 className="group-hover:translate-x-1 transition-transform"
               />
-            </Button>
-            <Button
-              variant="heroOutline"
-              size="xl"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
-              onClick={() =>
-                window.open("mailto:daiiparet@gmail.com", "_blank")
-              }
-            >
-              <Mail size={20} />
-              Enviame un email
             </Button>
             <Button
               variant="heroOutline"

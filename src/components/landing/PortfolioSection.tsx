@@ -79,23 +79,29 @@ const PortfolioSection = () => {
   return (
     <section
       id="portfolio"
-      className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-b from-background via-background to-accent/20"
+      className="relative py-20 md:py-32 overflow-hidden bg-[#0d0b13]"
     >
       {/* Gradientes de fondo de marca */}
-      <div className="pointer-events-none absolute inset-0 brand-gradient-bg opacity-70" />
-      <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-72 rounded-full bg-brand-yellow/10 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0d0b13] via-[#160f22] to-[#0d0b13]" />
+      <div className="pointer-events-none absolute inset-0 brand-gradient-bg opacity-25" />
+      <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-72 rounded-full bg-brand-yellow/15 blur-3xl" />
 
       <div className="relative z-10">
         <div className="container mx-auto px-4 md:px-6 mb-12 md:mb-16 text-center">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-brand-yellow/20 text-foreground border border-brand-yellow/40 glow-yellow">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-brand-yellow/20 text-white border border-brand-yellow/40 glow-yellow">
             <Sparkles size={16} className="text-glow-yellow" />
             Portfolio
           </span>
-          <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+          <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
             Contenido que hace que tu marca{" "}
-            <span className="text-primary">se vea real.</span>
+            <span
+              className="text-brand-hotpink"
+              style={{ textShadow: "0 0 32px hsl(var(--grad-hotpink) / 0.5)" }}
+            >
+              se vea real.
+            </span>
           </h2>
-          <p className="mt-5 max-w-2xl mx-auto text-lg text-muted-foreground">
+          <p className="mt-5 max-w-2xl mx-auto text-lg text-white/70">
             Estos son algunos de los reels que produzco para mis clientes.
             Historias reales, marcas que conectan.
           </p>
@@ -104,8 +110,8 @@ const PortfolioSection = () => {
         {/* Carrusel */}
         <div className="relative">
           {/* Bordes difuminados */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-10 md:w-24 z-10 bg-gradient-to-r from-background to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-10 md:w-24 z-10 bg-gradient-to-l from-background to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-10 md:w-24 z-10 bg-gradient-to-r from-[#0d0b13] to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-10 md:w-24 z-10 bg-gradient-to-l from-[#0d0b13] to-transparent" />
 
           <div ref={emblaRef} className="cursor-grab active:cursor-grabbing">
             <div className="flex">
@@ -138,7 +144,7 @@ const PortfolioSection = () => {
                             loaded[i] ? "opacity-0 pointer-events-none" : "opacity-100"
                           }`}
                         >
-                          <div className="h-full w-full animate-pulse bg-gradient-to-b from-muted/40 via-muted/70 to-muted/40" />
+                          <div className="h-full w-full animate-pulse bg-gradient-to-b from-white/5 via-white/10 to-white/5" />
                         </div>
                         <video
                           ref={(el) => {
@@ -174,7 +180,7 @@ const PortfolioSection = () => {
           <button
             onClick={scrollPrev}
             aria-label="Anterior"
-            className="hidden md:flex absolute left-6 lg:left-12 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full bg-card/90 backdrop-blur border border-border shadow-lg text-foreground hover:text-primary hover:border-brand-yellow/60 hover:glow-yellow transition-all"
+            className="hidden md:flex absolute left-6 lg:left-12 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full bg-white/10 backdrop-blur border border-white/15 shadow-lg text-white hover:text-brand-yellow hover:border-brand-yellow/60 hover:glow-yellow transition-all"
           >
             <ChevronLeft size={22} />
           </button>
@@ -197,13 +203,13 @@ const PortfolioSection = () => {
               className={`rounded-full transition-all duration-300 ${
                 i === selectedIndex
                   ? "w-8 h-3 bg-brand-yellow shadow-[0_0_14px_hsl(var(--brand-yellow)/0.8)]"
-                  : "w-3 h-3 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  : "w-3 h-3 bg-white/25 hover:bg-white/40"
               }`}
             />
           ))}
         </div>
 
-        <p className="text-center text-xs text-muted-foreground mt-6 md:hidden">
+        <p className="text-center text-xs text-white/50 mt-6 md:hidden">
           Deslizá para ver más →
         </p>
       </div>
