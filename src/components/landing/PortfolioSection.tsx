@@ -1,101 +1,214 @@
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Volume2, VolumeX, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
-const portfolioItems = [
-    {
-        id: 1,
-        image: "/portfolio/portfolio-1.png",
-        alt: "Santa Fe Computación",
-    },
-    {
-        id: 2,
-        image: "/portfolio/portfolio-2.png",
-        alt: "Laberinto mágico pelotero",
-    },
-    {
-        id: 3,
-        image: "/portfolio/portfolio-3.png",
-        alt: "Reva Consultoria",
-    },
-    {
-        id: 4,
-        image: "/portfolio/portfolio-4.png",
-        alt: "Hardmaq",
-    },
-    {
-        id: 5,
-        image: "/portfolio/portfolio-5.png",
-        alt: "Gimnasio Kiven",
-    },
-];
+import reel1 from "@/assets/videos-portfolio/reel-1.mp4";
+import reel2 from "@/assets/videos-portfolio/reel-2.mp4";
+import reel3 from "@/assets/videos-portfolio/reel-3.mp4";
+import reel4 from "@/assets/videos-portfolio/reel-4.mp4";
+import reel5 from "@/assets/videos-portfolio/reel-5.mp4";
+import reel6 from "@/assets/videos-portfolio/reel-6.mp4";
+import reel7 from "@/assets/videos-portfolio/reel-7.mp4";
+
+const slides = [reel1, reel2, reel3, reel4, reel5, reel6, reel7];
 
 const PortfolioSection = () => {
-    return (
-        <section id="portfolio" className="py-16 md:py-32 bg-gradient-to-b from-secondary/5 to-background overflow-hidden">
-            <div className="container mx-auto px-4 md:px-6">
-                <div className="max-w-3xl mx-auto text-center mb-10 md:mb-16">
-                    <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 md:mb-6">
-                        Nuestro trabajo
-                    </span>
-                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
-                        Portfolio de clientes
-                    </h2>
-                    <p className="text-base md:text-lg text-muted-foreground px-2">
-                        Conocé algunos de los proyectos en los que trabajamos. Cada marca tiene su identidad y estrategia única.
-                    </p>
-                </div>
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { align: "center", loop: true, skipSnaps: false, containScroll: false },
+    [Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })]
+  );
 
-                <div className="relative max-w-6xl mx-auto px-2 md:px-16">
-                    <Carousel
-                        opts={{
-                            align: "center",
-                            loop: true,
-                        }}
-                        plugins={[
-                            Autoplay({
-                                delay: 4000,
-                                stopOnInteraction: true,
-                            }),
-                        ]}
-                        className="w-full"
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [audioEnabled, setAudioEnabled] = useState(false);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const [loaded, setLoaded] = useState<boolean[]>(() => slides.map(() => false));
+
+  const handleVideoLoaded = (index: number) => {
+    setLoaded((prev) => {
+      if (prev[index]) return prev;
+      const next = [...prev];
+      next[index] = true;
+      return next;
+    });
+  };
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    emblaApi.on("select", onSelect);
+    onSelect();
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi, onSelect]);
+
+  const scrollTo = useCallback(
+    (index: number) => emblaApi?.scrollTo(index),
+    [emblaApi]
+  );
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  // El video activo suena (si el audio está habilitado); los cercanos se
+  // reproducen en silencio y los lejanos se pausan para no saturar recursos.
+  useEffect(() => {
+    const total = slides.length;
+    videoRefs.current.forEach((video, index) => {
+      if (!video) return;
+      video.muted = !audioEnabled || index !== selectedIndex;
+      const dist = Math.min(
+        Math.abs(index - selectedIndex),
+        total - Math.abs(index - selectedIndex)
+      );
+      if (dist <= 1) {
+        const p = video.play();
+        if (p && typeof p.catch === "function") p.catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, [selectedIndex, audioEnabled]);
+
+  const toggleAudio = () => setAudioEnabled((prev) => !prev);
+
+  return (
+    <section
+      id="portfolio"
+      className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-b from-background via-background to-accent/20"
+    >
+      {/* Gradientes de fondo de marca */}
+      <div className="pointer-events-none absolute inset-0 brand-gradient-bg opacity-70" />
+      <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-72 rounded-full bg-brand-yellow/10 blur-3xl" />
+
+      <div className="relative z-10">
+        <div className="container mx-auto px-4 md:px-6 mb-12 md:mb-16 text-center">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-brand-yellow/20 text-foreground border border-brand-yellow/40 glow-yellow">
+            <Sparkles size={16} className="text-glow-yellow" />
+            Portfolio
+          </span>
+          <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+            Contenido que hace que tu marca{" "}
+            <span className="text-primary">se vea real.</span>
+          </h2>
+          <p className="mt-5 max-w-2xl mx-auto text-lg text-muted-foreground">
+            Estos son algunos de los reels que produzco para mis clientes.
+            Historias reales, marcas que conectan.
+          </p>
+        </div>
+
+        {/* Carrusel */}
+        <div className="relative">
+          {/* Bordes difuminados */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-10 md:w-24 z-10 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-10 md:w-24 z-10 bg-gradient-to-l from-background to-transparent" />
+
+          <div ref={emblaRef} className="cursor-grab active:cursor-grabbing">
+            <div className="flex">
+              {slides.map((src, i) => {
+                const isActive = i === selectedIndex;
+                return (
+                  <div
+                    key={i}
+                    className={`flex-[0_0_66%] sm:flex-[0_0_44%] md:flex-[0_0_32%] lg:flex-[0_0_24%] px-2 md:px-3 ${
+                      isActive ? "z-10" : "z-0"
+                    } relative`}
+                  >
+                    <div
+                      className={`relative rounded-2xl md:rounded-3xl overflow-hidden transition-[transform,opacity,box-shadow] duration-500 ease-out ${
+                        isActive
+                          ? "scale-100 opacity-100 shadow-[0_24px_70px_-18px_hsl(var(--brand-yellow)/0.6)]"
+                          : "scale-[0.9] opacity-55"
+                      }`}
                     >
-                        <CarouselContent>
-                            {portfolioItems.map((item) => (
-                                <CarouselItem key={item.id} className="basis-full">
-                                    <div className="group relative overflow-hidden rounded-xl md:rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-xl mx-1 md:mx-0">
-                                        <div className="aspect-[16/10] md:aspect-video overflow-hidden">
-                                            <img
-                                                src={item.image}
-                                                alt={item.alt}
-                                                className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                                            />
-                                        </div>
-                                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 md:p-4">
-                                            <p className="text-white text-sm md:text-base font-medium">{item.alt}</p>
-                                        </div>
-                                    </div>
-                                </CarouselItem>
-                            ))}
-                        </CarouselContent>
-                        <CarouselPrevious className="left-2 md:-left-6 h-8 w-8 md:h-10 md:w-10 bg-card/90 border-border hover:bg-primary hover:text-primary-foreground hover:border-primary" />
-                        <CarouselNext className="right-2 md:-right-6 h-8 w-8 md:h-10 md:w-10 bg-card/90 border-border hover:bg-primary hover:text-primary-foreground hover:border-primary" />
-                    </Carousel>
-
-                    {/* Indicador de swipe en móvil */}
-                    <p className="text-center text-xs text-muted-foreground mt-4 md:hidden">
-                        Deslizá para ver más →
-                    </p>
-                </div>
-
+                      {/* Anillo amarillo con brillo en el activo */}
+                      <div
+                        className={`absolute -inset-[2.5px] rounded-2xl md:rounded-3xl bg-gradient-to-br from-brand-yellow via-primary/60 to-brand-yellow transition-opacity duration-500 ${
+                          isActive ? "opacity-100" : "opacity-0"
+                        }`}
+                      />
+                      <div className="relative rounded-2xl md:rounded-3xl overflow-hidden bg-secondary/10">
+                        {/* Skeleton mientras carga */}
+                        <div
+                          className={`absolute inset-0 z-10 aspect-[9/16] transition-opacity duration-500 ${
+                            loaded[i] ? "opacity-0 pointer-events-none" : "opacity-100"
+                          }`}
+                        >
+                          <div className="h-full w-full animate-pulse bg-gradient-to-b from-muted/40 via-muted/70 to-muted/40" />
+                        </div>
+                        <video
+                          ref={(el) => {
+                            videoRefs.current[i] = el;
+                          }}
+                          src={src}
+                          className="w-full aspect-[9/16] object-cover select-none pointer-events-none"
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          preload="metadata"
+                          onCanPlay={() => handleVideoLoaded(i)}
+                        />
+                        {isActive && (
+                          <button
+                            onClick={toggleAudio}
+                            className="absolute bottom-3 right-3 z-20 p-2 rounded-full bg-foreground/60 backdrop-blur-sm text-background hover:bg-foreground/80 transition-colors"
+                            aria-label={audioEnabled ? "Silenciar" : "Activar sonido"}
+                          >
+                            {audioEnabled ? <Volume2 size={18} /> : <VolumeX size={18} />}
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-        </section>
-    );
+          </div>
+
+          {/* Flechas */}
+          <button
+            onClick={scrollPrev}
+            aria-label="Anterior"
+            className="hidden md:flex absolute left-6 lg:left-12 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full bg-card/90 backdrop-blur border border-border shadow-lg text-foreground hover:text-primary hover:border-brand-yellow/60 hover:glow-yellow transition-all"
+          >
+            <ChevronLeft size={22} />
+          </button>
+          <button
+            onClick={scrollNext}
+            aria-label="Siguiente"
+            className="hidden md:flex absolute right-6 lg:right-12 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full bg-card/90 backdrop-blur border border-border shadow-lg text-foreground hover:text-primary hover:border-brand-yellow/60 hover:glow-yellow transition-all"
+          >
+            <ChevronRight size={22} />
+          </button>
+        </div>
+
+        {/* Indicadores */}
+        <div className="flex items-center justify-center gap-2 mt-10">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => scrollTo(i)}
+              aria-label={`Ir al video ${i + 1}`}
+              className={`rounded-full transition-all duration-300 ${
+                i === selectedIndex
+                  ? "w-8 h-3 bg-brand-yellow shadow-[0_0_14px_hsl(var(--brand-yellow)/0.8)]"
+                  : "w-3 h-3 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+              }`}
+            />
+          ))}
+        </div>
+
+        <p className="text-center text-xs text-muted-foreground mt-6 md:hidden">
+          Deslizá para ver más →
+        </p>
+      </div>
+    </section>
+  );
 };
 
 export default PortfolioSection;

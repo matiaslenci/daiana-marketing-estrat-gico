@@ -27,9 +27,9 @@ const CTASection = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button
-              variant="secondary"
+              variant="ctaGlow"
               size="xl"
-              className="group hover:text-white"
+              className="group"
               onClick={() =>
                 window.open("https://wa.me/5493424625118?text=Hola!%20estoy%20interesado%20en%20el%20manejo%20de%20redes%20sociales", "_blank")
               }
@@ -81,15 +81,15 @@ const CTASection = () => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-primary-foreground/70 text-sm">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary-foreground/50 rounded-full" />
+              <div className="w-2 h-2 bg-brand-yellow rounded-full shadow-[0_0_10px_hsl(var(--brand-yellow)/0.9)]" />
               Respuesta en menos de 24 hs
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary-foreground/50 rounded-full" />
+              <div className="w-2 h-2 bg-brand-yellow rounded-full shadow-[0_0_10px_hsl(var(--brand-yellow)/0.9)]" />
               Sin compromiso
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary-foreground/50 rounded-full" />
+              <div className="w-2 h-2 bg-brand-yellow rounded-full shadow-[0_0_10px_hsl(var(--brand-yellow)/0.9)]" />
               Primera llamada gratuita
             </div>
           </div>

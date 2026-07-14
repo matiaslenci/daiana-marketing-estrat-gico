@@ -22,6 +22,8 @@ const buttonVariants = cva(
         heroOutline:
           "border-2 border-primary text-primary bg-transparent hover:bg-primary/10 hover:-translate-y-1",
         cta: "bg-gradient-to-r from-primary to-accent-foreground text-primary-foreground hover:shadow-xl hover:-translate-y-1 shadow-lg font-semibold",
+        ctaGlow:
+          "btn-glow font-semibold hover:-translate-y-0.5 hover:shadow-xl",
       },
       size: {
         default: "h-10 px-4 py-2",

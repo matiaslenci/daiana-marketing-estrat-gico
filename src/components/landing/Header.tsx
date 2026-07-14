@@ -24,6 +24,12 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             <button
+              onClick={() => scrollToSection("portfolio")}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Portfolio
+            </button>
+            <button
               onClick={() => scrollToSection("servicios")}
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
@@ -41,7 +47,7 @@ const Header = () => {
             >
               Proceso
             </button>
-            <Button variant="hero" size="default" onClick={() => scrollToSection("contacto")}>
+            <Button variant="ctaGlow" size="default" onClick={() => scrollToSection("contacto")}>
               Agendar llamada
             </Button>
           </nav>
@@ -59,6 +65,12 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden py-4 border-t border-border/50 animate-fade-in">
             <div className="flex flex-col gap-4">
+              <button
+                onClick={() => scrollToSection("portfolio")}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left"
+              >
+                Portfolio
+              </button>
               <button
                 onClick={() => scrollToSection("servicios")}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors text-left"

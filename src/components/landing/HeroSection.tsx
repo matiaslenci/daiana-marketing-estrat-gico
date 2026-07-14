@@ -13,14 +13,16 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/30" />
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 left-0 w-72 h-72 bg-accent-foreground/10 rounded-full blur-3xl" />
+      <div className="absolute inset-0 brand-gradient-bg opacity-60" />
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-brand-hotpink/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 left-0 w-72 h-72 bg-brand-lavender/25 rounded-full blur-3xl" />
+      <div className="absolute top-10 left-1/3 w-40 h-40 bg-brand-yellow/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="space-y-8 animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary">
-              <Target size={16} />
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-yellow/20 border border-brand-yellow/40 rounded-full text-sm font-medium text-foreground glow-yellow">
+              <Target size={16} className="text-glow-yellow" />
               Marketing estratégico para pymes
             </div>
 
@@ -37,7 +39,7 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="xl" onClick={scrollToContact}>
+              <Button variant="ctaGlow" size="xl" onClick={scrollToContact}>
                 Agendar llamada gratuita
                 <ArrowRight size={20} />
               </Button>
@@ -56,11 +58,11 @@ const HeroSection = () => {
 
             <div className="flex items-center gap-8 pt-4">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <div className="w-2 h-2 bg-primary rounded-full" />
+                <div className="w-2 h-2 bg-brand-yellow rounded-full shadow-[0_0_10px_hsl(var(--brand-yellow)/0.8)]" />
                 Con estrategia real
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <div className="w-2 h-2 bg-primary rounded-full" />
+                <div className="w-2 h-2 bg-brand-yellow rounded-full shadow-[0_0_10px_hsl(var(--brand-yellow)/0.8)]" />
                 Resultados medibles
               </div>
             </div>
