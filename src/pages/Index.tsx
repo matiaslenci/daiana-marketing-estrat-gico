@@ -1,9 +1,8 @@
 import Header from "@/components/landing/Header";
 import HeroSection from "@/components/landing/HeroSection";
-import ProblemSection from "@/components/landing/ProblemSection";
-import SolutionSection from "@/components/landing/SolutionSection";
-import ServiceSection from "@/components/landing/ServiceSection";
 import PortfolioSection from "@/components/landing/PortfolioSection";
+import ClientsSection from "@/components/landing/ClientsSection";
+import ServiceSection from "@/components/landing/ServiceSection";
 import PackagesSection from "@/components/landing/PackagesSection";
 import ProcessSection from "@/components/landing/ProcessSection";
 import TargetSection from "@/components/landing/TargetSection";
@@ -16,13 +15,12 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <ProblemSection />
-        <SolutionSection />
-        <ServiceSection />
         <PortfolioSection />
+        <ServiceSection />
+        <ClientsSection />
         <PackagesSection />
-        <ProcessSection />
-        <TargetSection />
+        {/*    <ProcessSection />
+        <TargetSection /> */}
         <CTASection />
       </main>
       <Footer />

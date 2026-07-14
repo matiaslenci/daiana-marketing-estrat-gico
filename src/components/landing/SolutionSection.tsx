@@ -11,7 +11,8 @@ const benefits = [
 
 const SolutionSection = () => {
   return (
-    <section className="py-20 md:py-32 relative overflow-hidden">
+    <section id="solucion" className="py-20 md:py-32 relative overflow-hidden">
+      <div className="absolute inset-0 brand-gradient-bg opacity-40" />
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -66,7 +67,7 @@ const SolutionSection = () => {
           </div>
 
           <div className="order-1 lg:order-2 space-y-8">
-            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
+            <span className="inline-block px-4 py-2 bg-brand-yellow/20 border border-brand-yellow/40 text-foreground rounded-full text-sm font-medium glow-yellow">
               La solución
             </span>
 
@@ -92,15 +93,15 @@ const SolutionSection = () => {
             </ul>
 
             <Button
-              variant="hero"
+              variant="ctaGlow"
               size="lg"
               onClick={() =>
                 document
-                  .getElementById("servicios")
+                  .getElementById("portfolio")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
             >
-              Ver cómo funciona
+              Ver mi trabajo
               <ArrowRight size={18} />
             </Button>
           </div>

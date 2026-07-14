@@ -20,9 +20,19 @@ All colors MUST be HSL.
     --popover: 240 5% 90%;
     --popover-foreground: 240 5% 10%;
 
-    //--primary: 333 71% 50%;
+    /* --primary: 333 71% 50%; */
     --primary: 333 86.2% 31.8%;
     --primary-foreground: 327 73% 97%;
+
+    /* Brand accent — amarillo/lima con brillo */
+    --brand-yellow: 86 100% 72%; /* #c1ff72 */
+    --brand-yellow-foreground: 240 30% 12%;
+
+    /* Paleta de gradientes de fondo */
+    --grad-pink: 345 70% 82%; /* #f1afbf */
+    --grad-lavender: 285 37% 77%; /* #d0b0db */
+    --grad-rose: 334 23% 80%; /* #d8c1cb */
+    --grad-hotpink: 334 97% 76%; /* #fe85b9 */
 
     --secondary: 240 5% 33%;
     --secondary-foreground: 0 0% 98%;
@@ -185,6 +195,150 @@ All colors MUST be HSL.
 
   .animate-float {
     animation: float 3s ease-in-out infinite;
+  }
+
+  /* Marquee para el carrusel de logos */
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+
+  /* Aparición al hacer scroll (aplicada vía IntersectionObserver) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Fondo con gradientes de la paleta de marca */
+  .brand-gradient-bg {
+    background-image: radial-gradient(
+        42rem 42rem at 12% -8%,
+        hsl(var(--grad-pink) / 0.55),
+        transparent 60%
+      ),
+      radial-gradient(
+        38rem 38rem at 92% 6%,
+        hsl(var(--grad-lavender) / 0.5),
+        transparent 60%
+      ),
+      radial-gradient(
+        40rem 40rem at 78% 96%,
+        hsl(var(--grad-hotpink) / 0.4),
+        transparent 62%
+      ),
+      radial-gradient(
+        36rem 36rem at 8% 92%,
+        hsl(var(--grad-rose) / 0.5),
+        transparent 60%
+      );
+  }
+
+  /* Texto con brillo amarillo */
+  .text-glow-yellow {
+    color: hsl(var(--brand-yellow));
+    text-shadow: 0 0 24px hsl(var(--brand-yellow) / 0.55);
+  }
+
+  /* Anillo/resplandor amarillo reutilizable */
+  .glow-yellow {
+    box-shadow: 0 0 0 1px hsl(var(--brand-yellow) / 0.5),
+      0 0 22px hsl(var(--brand-yellow) / 0.45),
+      0 0 48px hsl(var(--brand-yellow) / 0.25);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes gradient-pan {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 18px hsl(var(--brand-yellow) / 0.35),
+      0 0 40px hsl(var(--brand-yellow) / 0.18);
+  }
+  50% {
+    box-shadow: 0 0 26px hsl(var(--brand-yellow) / 0.6),
+      0 0 64px hsl(var(--brand-yellow) / 0.35);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-120%) skewX(-18deg);
+  }
+  60%,
+  100% {
+    transform: translateX(220%) skewX(-18deg);
+  }
+}
+
+/* Botón CTA con brillo amarillo y destello animado */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(
+    100deg,
+    hsl(var(--brand-yellow)),
+    hsl(96 90% 66%),
+    hsl(var(--brand-yellow))
+  );
+  background-size: 200% 100%;
+  color: hsl(var(--brand-yellow-foreground));
+  animation: gradient-pan 6s ease infinite, glow-pulse 3.2s ease-in-out infinite;
+}
+.btn-glow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.85),
+    transparent
+  );
+  animation: shimmer 3.6s ease-in-out infinite;
+  pointer-events: none;
+}
+.btn-glow:hover {
+  filter: brightness(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-glow,
+  .btn-glow::after,
+  .animate-marquee,
+  .animate-float {
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
