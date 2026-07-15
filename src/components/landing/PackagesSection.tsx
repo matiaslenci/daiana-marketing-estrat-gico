@@ -86,14 +86,14 @@ const PackagesSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto items-stretch">
+        <div className="grid md:grid-cols-3 gap-10 md:gap-6 lg:gap-8 max-w-6xl mx-auto items-stretch">
           {packages.map((pkg, index) => (
             <div
               key={index}
-              className={`relative rounded-3xl p-8 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 ${
+              className={`relative rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2 ${
                 pkg.featured
-                  ? "bg-white/[0.07] border border-brand-yellow/50 glow-yellow scale-[1.03] md:scale-105"
-                  : "bg-white/5 border border-white/10 hover:border-brand-yellow/30"
+                  ? "bg-[#1b1330] border border-brand-yellow/50 glow-yellow md:scale-105"
+                  : "bg-[#161022] border border-white/10 hover:border-brand-yellow/30"
               }`}
             >
               {pkg.featured && (

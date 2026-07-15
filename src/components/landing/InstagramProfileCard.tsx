@@ -19,7 +19,7 @@ const INSTAGRAM_URL = "https://www.instagram.com/daiparet.cm/";
 
 const InstagramProfileCard = () => {
   return (
-    <div className="relative w-full max-w-[22rem] sm:max-w-sm lg:max-w-md mx-auto">
+    <div className="relative w-full max-w-[22rem] sm:max-w-sm lg:max-w-md mx-auto px-4 pb-8 sm:px-0">
       {/* Resplandor de marca detrás de la tarjeta */}
       <div className="pointer-events-none absolute -inset-6 bg-brand-hotpink/25 blur-3xl rounded-[3rem]" />
 
@@ -104,9 +104,9 @@ const InstagramProfileCard = () => {
         </div>
       </div>
 
-      {/* Pill flotante de contacto */}
+      {/* Pill flotante de contacto (en mobile cuelga debajo para no tapar los botones) */}
       <div
-        className="absolute -bottom-3 right-1 sm:-right-3 flex items-center gap-1.5 rounded-full border border-white/10 bg-[#181320]/95 px-3 py-1.5 shadow-lg backdrop-blur animate-float"
+        className="absolute right-4 top-full mt-3 sm:top-auto sm:mt-0 sm:-bottom-3 sm:-right-3 flex items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-[#181320]/95 px-4 py-2.5 sm:gap-1.5 sm:px-3 sm:py-1.5 shadow-lg backdrop-blur animate-float"
         style={{ animationDelay: "0.6s" }}
       >
         <span className="h-2 w-2 rounded-full bg-[#25d366] shadow-[0_0_8px_#25d366]" />

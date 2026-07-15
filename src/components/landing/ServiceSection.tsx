@@ -79,7 +79,7 @@ const ServiceSection = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative rounded-3xl p-6 bg-white/5 backdrop-blur-xl border border-white/10 transition-all duration-300 hover:-translate-y-1 hover:border-brand-yellow/40 hover:bg-white/[0.07]"
+              className="group relative rounded-3xl p-6 bg-[#161022] border border-white/10 transition-all duration-300 hover:-translate-y-1 hover:border-brand-yellow/40"
             >
               {/* Resplandor amarillo sutil al hacer hover */}
               <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_40px_-8px_hsl(var(--brand-yellow)/0.35)]" />
